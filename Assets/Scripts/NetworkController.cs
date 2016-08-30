@@ -8,6 +8,8 @@ public class NetworkController : MonoBehaviour
 
 	void Start ()
 	{
+		// PhotonNetwork.sendRate = 10;
+		// PhotonNetwork.sendRateOnSerialize = 10;
 		PhotonNetwork.ConnectUsingSettings("0.1");
 	}
 
@@ -21,7 +23,7 @@ public class NetworkController : MonoBehaviour
 	
 	void OnJoinedRoom()
 	{
-		_playerNum = PhotonNetwork.playerList.Length == 1 ? 1 : 2;
+		_playerNum = PhotonNetwork.playerList.Length;
 		Debug.Log (_playerNum);
 
 		object[] photonData = new object[1];
